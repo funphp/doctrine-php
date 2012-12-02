@@ -1,0 +1,37 @@
+<?php
+// entities/Post.php
+/**
+ * @Entity @Table(name="posts")
+ **/
+class Post
+{
+    /**
+     * @Id @Column(type="integer") @GeneratedValue
+     **/
+    protected $id;
+     /**
+     * @Column(type="string")
+     **/
+    protected $title;
+
+    /**
+     * @Column(type="string")
+     **/
+    protected $description;
+    /**
+     * @Column(type="datetime")
+     **/
+    protected $created;
+    /**
+     * @Column(type="string")
+     **/
+    protected $status;
+
+    /**
+     * @OneToMany(targetEntity="Comment", mappedBy="postId")
+     * @var Comment[]
+     **/
+    protected $articleComments = null;
+
+   
+}
